@@ -19,7 +19,7 @@ public class UnitTest1
     public void bool‚ÌƒeƒXƒg()
     {
         var vm = new ProductViewModel();
-        vm.IsChecked.Is(true);
+        vm.IsChecked.IsTrue();
         vm.IsReadOnly.IsFalse();
     }
 }
