@@ -22,4 +22,17 @@ public class UnitTest1
         vm.IsChecked.IsTrue();
         vm.IsReadOnly.IsFalse();
     }
+
+    [Fact]
+    public void •¶Žš‚ÌƒeƒXƒg()
+    {
+        ProductViewModel vm = new();
+        vm.Price = 123;
+        vm.PriceText.Is("123‰~");
+
+        Assert.StartsWith("Ab", "Abc123");
+        Assert.EndsWith("23", "Abc123");
+        Assert.Equal("Abc123", "AbC123", ignoreCase: true);
+        Assert.Contains("c1", "Abc123");
+    }
 }
