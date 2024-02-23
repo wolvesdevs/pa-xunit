@@ -32,5 +32,6 @@ public class UnitTest1
 
         Assert.StartsWith("Ab", "Abc123");
         Assert.EndsWith("23", "Abc123");
+        Assert.Equal("Abc123", "AbC123", ignoreCase: true);
     }
 }
