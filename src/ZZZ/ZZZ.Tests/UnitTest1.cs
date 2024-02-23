@@ -29,5 +29,8 @@ public class UnitTest1
         ProductViewModel vm = new();
         vm.Price = 123;
         vm.PriceText.Is("123‰~");
+
+        Assert.StartsWith("Ab", "Abc123");
+        Assert.EndsWith("23", "Abc123");
     }
 }
