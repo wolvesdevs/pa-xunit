@@ -22,4 +22,12 @@ public class UnitTest1
         vm.IsChecked.IsTrue();
         vm.IsReadOnly.IsFalse();
     }
+
+    [Fact]
+    public void •¶Žš‚ÌƒeƒXƒg()
+    {
+        ProductViewModel vm = new();
+        vm.Price = 123;
+        vm.PriceText.Is("123‰~");
+    }
 }
