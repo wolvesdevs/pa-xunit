@@ -10,7 +10,7 @@ public class UnitTest1
     {
         int value = 123;
         Assert.Equal(123, value);
-
+        
         string stringValue = "abc";
         stringValue.Is("abc");
     }
@@ -34,5 +34,15 @@ public class UnitTest1
         Assert.EndsWith("23", "Abc123");
         Assert.Equal("Abc123", "AbC123", ignoreCase: true);
         Assert.Contains("c1", "Abc123");
+    }
+
+    [Fact]
+    public void 正規表現のテスト()
+    {
+        Assert.DoesNotMatch("^[0-9]+$", "123A45");
+        Assert.Matches("^[0-9]+$", "12345");
+
+        Assert.DoesNotMatch("^[A-Za-z]+$", "ABC1");
+        Assert.Matches("^[A-Za-z]+$", "Abc");
     }
 }
