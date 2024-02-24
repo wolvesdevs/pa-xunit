@@ -45,4 +45,16 @@ public class UnitTest1
         Assert.DoesNotMatch("^[A-Za-z]+$", "ABC1");
         Assert.Matches("^[A-Za-z]+$", "Abc");
     }
+
+    [Fact]
+    public void 数値のテスト()
+    {
+        ProductViewModel vm = new();
+        vm.Price = 123;
+        Assert.Equal(123, vm.Price);
+        Assert.NotEqual(555, vm.Price);
+
+        Assert.InRange(vm.Price, 123, 200);
+        Assert.NotInRange(vm.Price, 124, 200);
+    }
 }
