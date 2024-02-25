@@ -96,6 +96,7 @@ public class UnitTest1
         Assert.Single(items2, item => item == 2);
         Assert.Single(items2, 2);
     }
+
     [Fact]
     public void コレクションのテスト_Collection()
     {
@@ -105,6 +106,14 @@ public class UnitTest1
             item => Assert.True(item.Length == 2),
             item => Assert.True(item.Length == 1)
             );
+    }
+
+    [Fact]
+    public void コレクションのテスト_Contains()
+    {
+        List<int> items = [111, 123, 333];
+        Assert.Contains(123, items);
+        Assert.DoesNotContain(12, items);
 
     }
 
