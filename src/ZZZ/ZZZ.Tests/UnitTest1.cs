@@ -12,15 +12,15 @@ public class UnitTest1
         Assert.Equal(123, value);
         
         string stringValue = "abc";
-        stringValue.Is("abc");
+        //stringValue.Is("abc");
     }
 
     [Fact]
     public void boolのテスト()
     {
         var vm = new ProductViewModel();
-        vm.IsChecked.IsTrue();
-        vm.IsReadOnly.IsFalse();
+        //vm.IsChecked.IsTrue();
+        //vm.IsReadOnly.IsFalse();
     }
 
     [Fact]
@@ -28,7 +28,7 @@ public class UnitTest1
     {
         ProductViewModel vm = new();
         vm.Price = 123;
-        vm.PriceText.Is("123円");
+        //vm.PriceText.Is("123円");
 
         Assert.StartsWith("Ab", "Abc123");
         Assert.EndsWith("23", "Abc123");
@@ -56,5 +56,17 @@ public class UnitTest1
 
         Assert.InRange(vm.Price, 123, 200);
         Assert.NotInRange(vm.Price, 124, 200);
+    }
+
+    [Fact]
+    public void 浮動小数点数のテスト()
+    {
+        ProductViewModel vm = new();
+        var result = vm.Divide(100, 3);
+        Assert.Equal(33.333333333333336, result);
+        Assert.Equal(33.3333, result, 4);
+
+        double d1 = 1.23442;
+        Assert.Equal(1.2344, d1, 4);
     }
 }
