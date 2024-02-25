@@ -126,5 +126,19 @@ public class UnitTest1
         List<string> strings = ["AAA", "BBB", "CCC"];
         Assert.Contains("BBB", strings);
     }
+    
+    [Fact]
+    public void コレクションのテスト_Equal()
+    {
+        List<string> listA = ["AAA", "BBB", "CCC"];
+        List<string> listB = ["AAA", "BBB", "CCC"];
+        
+        Assert.Equal(listA, listB);
+
+        List<ProductId> productIdsA = [new(1) , new(2), new(3)];
+        List<ProductId> productIdsB = [new(1) , new(2), new(3)];
+
+        Assert.Equal(productIdsA, productIdsB);
+    }
 
 }
