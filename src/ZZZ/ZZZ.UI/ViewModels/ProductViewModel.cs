@@ -1,4 +1,5 @@
 ﻿
+using ZZZ.Domain.Exceptions;
 using ZZZ.Domain.Helper;
 
 namespace ZZZ.UI.ViewModels;
@@ -19,5 +20,13 @@ public class ProductViewModel
     public double Divide(double v1, double v2)
     {
         return v1 / v2;
+    }
+
+    public void Save(string value)
+    {
+        if (value is null)
+        {
+            throw new SaveException("valueがNULLです");
+        }
     }
 }

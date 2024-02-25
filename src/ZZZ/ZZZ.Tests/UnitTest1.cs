@@ -1,6 +1,7 @@
 using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
+using ZZZ.Domain.Exceptions;
 using ZZZ.Domain.Helper;
 using ZZZ.UI.ViewModels;
 
@@ -196,7 +197,7 @@ public class UnitTest1
         var silver = Assert.IsType<SilverMember>(member);
         Assert.Equal("Silver", silver.Value);
     }
-    
+
     [Fact]
     public void オブジェクトタイプのテスト_IsAssignableFrom()
     {
@@ -208,6 +209,15 @@ public class UnitTest1
         Assert.IsAssignableFrom<ContainerControl>(form);
         Assert.IsAssignableFrom<IContainerControl>(form);
         Assert.IsAssignableFrom<IDisposable>(form);
+    }
+
+    [Fact]
+    public void 例外のテスト()
+    {
+        ProductViewModel vm = new();
+        string value = null;
+        var ex = Assert.Throws<SaveException>(() => vm.Save(value));
+        Assert.Equal("valueがNULLです", ex.Message);
     }
 
 }
