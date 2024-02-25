@@ -1,4 +1,6 @@
 using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
 using ZZZ.Domain.Helper;
 using ZZZ.UI.ViewModels;
 
@@ -193,6 +195,19 @@ public class UnitTest1
 
         var silver = Assert.IsType<SilverMember>(member);
         Assert.Equal("Silver", silver.Value);
+    }
+    
+    [Fact]
+    public void オブジェクトタイプのテスト_IsAssignableFrom()
+    {
+        SilverMember silver = new();
+        Assert.IsAssignableFrom<MemberBase>(silver);
+
+        Form form = new();
+        Assert.IsAssignableFrom<Control>(form);
+        Assert.IsAssignableFrom<ContainerControl>(form);
+        Assert.IsAssignableFrom<IContainerControl>(form);
+        Assert.IsAssignableFrom<IDisposable>(form);
     }
 
 }
