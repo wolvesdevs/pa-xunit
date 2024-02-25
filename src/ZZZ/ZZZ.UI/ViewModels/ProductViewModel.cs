@@ -1,9 +1,10 @@
-﻿using ZZZ.Domain.Exceptions;
+﻿using System.ComponentModel;
+using ZZZ.Domain.Exceptions;
 using ZZZ.Domain.Helper;
 
 namespace ZZZ.UI.ViewModels;
 
-public class ProductViewModel
+public class ProductViewModel : INotifyPropertyChanged
 {
     public bool IsChecked { get; set; } = true;
     public bool IsReadOnly { get; set; }
@@ -11,6 +12,18 @@ public class ProductViewModel
     public object PriceText => $"{Price}円";
     public Product Product { get; set; }
     public event EventHandler<int> PriceChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
+
+    private string _productName;
+    public string ProductName
+    {
+        get => _productName;
+        set
+        {
+            _productName = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ProductName)));
+        }
+    }
 
     public void ChangePrice(int price)
     {

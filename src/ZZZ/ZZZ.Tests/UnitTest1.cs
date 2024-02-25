@@ -229,7 +229,13 @@ public class UnitTest1
             h => vm.PriceChanged -= h,
             () => vm.ChangePrice(123)
             );
+    }
 
+    [Fact]
+    public void PropertyChangedの通知テスト()
+    {
+        ProductViewModel vm = new();
+        Assert.PropertyChanged(vm, nameof(vm.ProductName), () => vm.ProductName = "AAA");
     }
 
 }
