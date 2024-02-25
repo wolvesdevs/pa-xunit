@@ -164,4 +164,15 @@ public class UnitTest1
 
     }
 
+    [Fact]
+    public void 同一インスタンスのテスト_Same()
+    {
+        ProductId p1 = new(1);
+        ProductId p2 = new(1);
+
+        Assert.Equal(p1, p2);
+        //Assert.Same(p1, p2);
+        Assert.NotSame(p1, p2);
+    }
+
 }
