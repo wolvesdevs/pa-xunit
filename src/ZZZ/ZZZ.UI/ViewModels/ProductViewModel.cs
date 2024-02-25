@@ -1,4 +1,6 @@
 ﻿
+using ZZZ.Domain.Helper;
+
 namespace ZZZ.UI.ViewModels;
 
 public class ProductViewModel
@@ -7,6 +9,12 @@ public class ProductViewModel
     public bool IsReadOnly { get; set; }
     public int Price { get; set; }
     public object PriceText => $"{Price}円";
+    public Product Product { get; set; }
+
+    public void CreateProduct()
+    {
+        Product = new Product();
+    }
 
     public double Divide(double v1, double v2)
     {

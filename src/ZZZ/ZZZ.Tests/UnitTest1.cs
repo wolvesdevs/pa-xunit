@@ -69,4 +69,13 @@ public class UnitTest1
         double d1 = 1.23442;
         Assert.Equal(1.2344, d1, 4);
     }
+
+    [Fact]
+    public void Null‚ÌƒeƒXƒg()
+    {
+        ProductViewModel vm = new();
+        Assert.Null(vm.Product);
+        vm.CreateProduct();
+        Assert.NotNull(vm.Product);
+    }
 }
