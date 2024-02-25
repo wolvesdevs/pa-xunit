@@ -85,4 +85,17 @@ public class UnitTest1
         List<string> items = ["AAA", "BBB", "CCC"];
         Assert.All(items, item => Assert.True(item.Length == 3));
     }
+
+    [Fact]
+    public void コレクションのテスト_Single()
+    {
+        List<int> items1 = [3];
+        Assert.Single(items1);
+
+        List<int> items2 = [1, 1, 2, 3, 3];
+        Assert.Single(items2, item => item == 2);
+        Assert.Single(items2, 2);
+
+    }
+
 }
