@@ -95,6 +95,16 @@ public class UnitTest1
         List<int> items2 = [1, 1, 2, 3, 3];
         Assert.Single(items2, item => item == 2);
         Assert.Single(items2, 2);
+    }
+    [Fact]
+    public void コレクションのテスト_Collection()
+    {
+        List<string> items = ["AAA", "BB", "C"];
+        Assert.Collection(items,
+            item => Assert.True(item.Length == 3),
+            item => Assert.True(item.Length == 2),
+            item => Assert.True(item.Length == 1)
+            );
 
     }
 
