@@ -10,7 +10,7 @@ public class UnitTest1
     {
         int value = 123;
         Assert.Equal(123, value);
-        
+
         string stringValue = "abc";
         //stringValue.Is("abc");
     }
@@ -77,5 +77,12 @@ public class UnitTest1
         Assert.Null(vm.Product);
         vm.CreateProduct();
         Assert.NotNull(vm.Product);
+    }
+
+    [Fact]
+    public void コレクションのテスト_All()
+    {
+        List<string> items = ["AAA", "BBB", "CCC"];
+        Assert.All(items, item => Assert.True(item.Length == 3));
     }
 }
