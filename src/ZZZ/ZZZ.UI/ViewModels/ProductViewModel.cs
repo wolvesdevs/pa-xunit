@@ -1,5 +1,4 @@
-﻿
-using ZZZ.Domain.Exceptions;
+﻿using ZZZ.Domain.Exceptions;
 using ZZZ.Domain.Helper;
 
 namespace ZZZ.UI.ViewModels;
@@ -11,6 +10,13 @@ public class ProductViewModel
     public int Price { get; set; }
     public object PriceText => $"{Price}円";
     public Product Product { get; set; }
+    public event EventHandler<int> PriceChanged;
+
+    public void ChangePrice(int price)
+    {
+        Price = price;
+        PriceChanged?.Invoke(this, Price);
+    }
 
     public void CreateProduct()
     {

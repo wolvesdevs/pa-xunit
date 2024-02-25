@@ -220,4 +220,16 @@ public class UnitTest1
         Assert.Equal("valueがNULLです", ex.Message);
     }
 
+    [Fact]
+    public void イベントの通知テスト()
+    {
+        ProductViewModel vm = new();
+        Assert.Raises<int>(
+            h => vm.PriceChanged += h,
+            h => vm.PriceChanged -= h,
+            () => vm.ChangePrice(123)
+            );
+
+    }
+
 }
