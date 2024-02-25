@@ -12,7 +12,7 @@ public class UnitTest1
         int value = 123;
         Assert.Equal(123, value);
 
-        string stringValue = "abc";
+        //string stringValue = "abc";
         //stringValue.Is("abc");
     }
 
@@ -173,6 +173,26 @@ public class UnitTest1
         Assert.Equal(p1, p2);
         //Assert.Same(p1, p2);
         Assert.NotSame(p1, p2);
+    }
+
+    [Fact]
+    public void オブジェクトタイプのテスト_IsType()
+    {
+        int a = 1;
+        Assert.IsType<int>(a);
+
+        string b = "";
+        Assert.IsType<string>(b);
+
+        ProductId c = new(1);
+        Assert.IsType<int>(c.Value);
+
+        MemberBase member = MemberBase.Create(1);
+        Assert.IsType<SilverMember>(member);
+        Assert.IsNotType<GoldMember>(member);
+
+        var silver = Assert.IsType<SilverMember>(member);
+        Assert.Equal("Silver", silver.Value);
     }
 
 }
