@@ -1,4 +1,5 @@
 using System.Collections;
+using ZZZ.Domain.Helper;
 using ZZZ.UI.ViewModels;
 
 namespace ZZZ.Tests;
@@ -109,12 +110,21 @@ public class UnitTest1
     }
 
     [Fact]
-    public void コレクションのテスト_Contains()
+    public void コレクションのテスト_Contains_プリミティブ型()
     {
         List<int> items = [111, 123, 333];
         Assert.Contains(123, items);
         Assert.DoesNotContain(12, items);
+    }
 
+    [Fact]
+    public void コレクションのテスト_Contains_参照型()
+    {
+        List<ProductId> items = [new(1), new(2), new(3)];
+        Assert.Contains(new(2), items);
+
+        List<string> strings = ["AAA", "BBB", "CCC"];
+        Assert.Contains("BBB", strings);
     }
 
 }
