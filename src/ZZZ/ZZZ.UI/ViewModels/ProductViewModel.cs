@@ -48,4 +48,9 @@ public class ProductViewModel : INotifyPropertyChanged
             throw new SaveException("valueがNULLです");
         }
     }
+
+    public string GetTaxPrice()
+    {
+        return $"{Math.Truncate(Price * 1.08)}円";
+    }
 }
