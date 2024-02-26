@@ -37,4 +37,31 @@ public class UnitTest8
         vm.Price = price;
         Assert.Equal(result, vm.GetTaxPrice());
     }
+
+    [Theory]
+    [MemberData(nameof(TestData))]
+    public void TestXA(int price, string result)
+    {
+        ProductViewModel vm = new();
+
+        vm.Price = price;
+        Assert.Equal(result, vm.GetTaxPrice());
+    }
+
+    [Theory]
+    [MemberData(nameof(TestData))]
+    public void TestXB(int price, string result)
+    {
+        ProductViewModel vm = new();
+
+        vm.Price = price;
+        Assert.Equal(result, vm.GetTaxPrice());
+    }
+
+    public static IEnumerable<object[]> TestData => new List<object[]>
+    {
+        new object[] {0, "0円"},
+        new object[] {100, "108円"},
+        new object[] {101, "109円"},
+    };
 }
