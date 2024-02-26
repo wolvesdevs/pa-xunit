@@ -58,6 +58,16 @@ public class UnitTest8
         Assert.Equal(result, vm.GetTaxPrice());
     }
 
+    [Theory]
+    [MemberData(nameof(TaxDataSet.CaseA), MemberType = typeof(TaxDataSet))]
+    public void TestXC(int price, string result)
+    {
+        ProductViewModel vm = new();
+
+        vm.Price = price;
+        Assert.Equal(result, vm.GetTaxPrice());
+    }
+
     public static IEnumerable<object[]> TestData => new List<object[]>
     {
         new object[] {0, "0円"},
