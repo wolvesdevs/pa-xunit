@@ -36,7 +36,7 @@ public class UnitTest2
 
     [Fact]
     [Trait("Owner", "XX開発Gr")]
-    public void TestZ()
+    public void TestZ受注()
     {
     }
 
