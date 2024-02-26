@@ -22,4 +22,22 @@ public class TestHelper
 
         return result;
     }
+
+    public static IEnumerable<object[]> CsvRead(string filePath)
+    {
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException("XXXX" + filePath);
+        }
+
+        var lines = File.ReadAllLines(filePath);
+        var result = new List<object[]>();
+        foreach (var line in lines)
+        {
+            var items = line.Split(',');
+            result.Add(items);
+        }
+
+        return result;
+    }
 }
